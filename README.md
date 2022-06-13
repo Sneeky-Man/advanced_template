@@ -11,7 +11,7 @@
 
 ## Important Information
 
-This was coded in Python 3.10.5 and Arcade 2.6.1
+This was coded in Python 3.10.5 and Arcade 2.6.15
 
 If you have any questions about my code, or any suggestions on how to improve it, 
 feel free to message me on discord: Sneeky Man#6770
