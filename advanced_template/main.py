@@ -1,4 +1,6 @@
 import arcade, logging
+from advanced_template.views import MainMenuView
+
 
 
 class GameWindow(arcade.Window):
@@ -10,30 +12,13 @@ class GameWindow(arcade.Window):
         :param height: Height of the Screen
         :param title: Title of the Screen
         """
-        logging.debug("Initialisation of the game window has started ")
+        logging.info("Initialisation of the game window has started ")
         super().__init__(width=width, height=height, title=title, resizable=False)
 
-        logging.debug("Initialisation of the game window has been completed")
+        self.views = {}
+        self.views["main_menu"] = MainMenuView()
 
-    def setup(self):
-        """
-        This will be run to setup the window. Can be called again to restart the program, if implemented correctly.
-        """
-        logging.debug("Setup of the game window has started")
-
-        # Set the colour of the window (arcade uses color not colour!)
-        arcade.set_background_color(arcade.color.BLUEBERRY)
-
-        logging.debug("Setup of the game window has been completed")
-
-    def on_draw(self):
-        """
-        This runs every frame to draw stuff to the window.
-        """
-
-        # This starts drawing, avoid calling finish_render()!
-        arcade.start_render()
-
+        logging.info("Initialisation of the game window has been completed")
 
 
 def pre_window_setup():
@@ -42,14 +27,15 @@ def pre_window_setup():
     """
 
     # Logging system
-    level = logging.DEBUG
+    level = logging.INFO  # Debug level will fill the file with thousands of:
+    # [application.py:668 flip()] Garbage collected 0 OpenGL resource(s)
     format = '%(asctime)s,%(msecs)03d %(levelname)-8s [%(filename)s:%(lineno)d %(funcName)s()] %(message)s'
     logging.basicConfig(format=format,
                         datefmt='%H:%M:%S',
                         level=level,
                         filename="log_file.txt",
                         filemode="w")
-    logging.debug("Logging system has been set up")
+    logging.info("Logging system has been set up")
 
     if arcade.VERSION != "2.6.15":
         logging.warning(f"This was developed using Arcade 2.6.15, but your current version is {arcade.VERSION}. "
@@ -61,8 +47,8 @@ def window_setup():
     This setups the arcade window
     """
     window = GameWindow(1000, 1000, "Advanced Arcade Template")
-    window.setup()
-    logging.debug("Running the Window")
+    window.show_view(window.views["main_menu"])
+    logging.info("Running the Window")
     arcade.run()
 
 
