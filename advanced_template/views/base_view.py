@@ -1,11 +1,13 @@
 # I changed the naming since i felt the community platformer's names were a bit confusing, especially to new
 # programmers like i once was.
 
-from arcade import View
+import arcade
+import arcade.gui
 import logging
 
 
-class BaseView(View):
+
+class BaseView(arcade.View):
     def __init__(self, view_name):
         """
         This is what all views will be based off.
@@ -28,7 +30,7 @@ class BaseView(View):
 
         logging.info(f"Setup of the {self.view_name} view has been completed")
 
-    def on_show(self):
+    def on_show_view(self):
         """
         When the view is shown, it enabled ui manager and called the setup if a setup has not been done yet.
         """

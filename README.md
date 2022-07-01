@@ -5,9 +5,9 @@
 * This game is coded in Python, using the [Arcade](https://api.arcade.academy/en/latest/) library
 
 ## Important Files
-* Run main.py to start the program
-* See CHANGELOG.md for a more detailed list of changes
-* See BUGS.md for known bugs
+* Run `main.py` to start the program
+* See `CHANGELOG.md` for a more detailed list of changes
+* See `BUGS.md` for known bugs
 
 ## Important Information
 

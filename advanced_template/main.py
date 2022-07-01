@@ -1,4 +1,5 @@
 import arcade, logging
+
 from advanced_template.views import MainMenuView
 
 
@@ -46,6 +47,8 @@ def window_setup():
     """
     This setups the arcade window
     """
+
+    pre_window_setup()
     window = GameWindow(1000, 1000, "Advanced Arcade Template")
     window.show_view(window.views["main_menu"])
     logging.info("Running the Window")
@@ -56,9 +59,7 @@ def main():
     """
     This function is used to call the other necessary functions to start the game.
     """
-    pre_window_setup()
     window_setup()
-
 
 # This runs the program only when the file is directly run.
 if __name__ == "__main__":
