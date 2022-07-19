@@ -30,3 +30,12 @@
 * Updated `CREDITS.md`.
 * Added automatic logging to the on_click event for the `BasicButton`.
 * Added a start, settings and quit buttons to the `MainMenuView`. Currently, only the quit button works as intended.
+
+#### 19/07/22, 22:05 
+* Active work on the project has been resumed
+* Reworked the entire view system to be less complicated and easier to use.
+* Now, all views will be initialised at the start, then `setup`, instead of `on_show_view` will be used to setup the view.
+* This is largely because I can't seem to pass arguments into `on_show_view`, and its also much easier just to make my own def, instead of using arcade defs, as i have complete control over mine.
+* Added `game_view.py`.
+* Added `GameView` in `game_view.py`
+* Added `star.png` and `player.png` for later use in `GameView`

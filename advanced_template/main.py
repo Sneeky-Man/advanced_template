@@ -1,7 +1,9 @@
-import arcade, logging
+import arcade
+import logging
 
-from advanced_template.views import MainMenuView
-
+from advanced_template.views.game_view import GameView
+from advanced_template.views.main_menu_view import MainMenuView
+from advanced_template.views.settings_view import SettingsView
 
 
 class GameWindow(arcade.Window):
@@ -16,8 +18,9 @@ class GameWindow(arcade.Window):
         logging.info("Initialisation of the game window has started ")
         super().__init__(width=width, height=height, title=title, resizable=False)
 
-        self.views = {}
-        self.views["main_menu"] = MainMenuView()
+        self.view_list = {"main_menu": MainMenuView(),
+                          "settings": SettingsView(),
+                          "game": GameView()}
 
         logging.info("Initialisation of the game window has been completed")
 
@@ -45,12 +48,12 @@ def pre_window_setup():
 
 def window_setup():
     """
-    This setups the arcade window
+    This setups the arcade window.
     """
-
     pre_window_setup()
     window = GameWindow(1000, 1000, "Advanced Arcade Template")
-    window.show_view(window.views["main_menu"])
+    window.view_list["main_menu"].setup()
+    window.show_view(window.view_list["main_menu"])
     logging.info("Running the Window")
     arcade.run()
 

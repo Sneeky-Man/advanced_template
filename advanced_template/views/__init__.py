@@ -4,5 +4,10 @@ Used to be: from advanced_template.views.[Filename] import [Viewname]
 Now is    : from advanced_template.views import [Viewname]
 """
 
+"""
 from .base_view import BaseView
 from .main_menu_view import MainMenuView
+from .settings_view import SettingsView
+"""
+
+# Scrap this, it results in circular imports
